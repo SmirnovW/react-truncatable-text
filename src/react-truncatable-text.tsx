@@ -6,14 +6,13 @@ import React, {
   useCallback,
   KeyboardEvent,
   MouseEvent,
+  CSSProperties,
 } from "react";
 import { useInView } from "react-intersection-observer";
 
 import { useMeasureText } from "./hooks/use-measure-text";
 import { useResizeObserver } from "./hooks/use-resize-observer";
 import { debounce, getWidth, truncate } from "./utils";
-
-import styles from "./truncatable-text.module.css";
 
 type Props = {
   children: string;
@@ -30,6 +29,11 @@ const KEYS = {
   CMD: "MetaLeft",
   CONTROL: "ControlLeft",
   C: "KeyC",
+};
+
+const INLINE_STYLES: Pick<CSSProperties, "whiteSpace" | "overflow"> = {
+  whiteSpace: "nowrap",
+  overflow: "hidden",
 };
 
 export const CONTAINER_TEST_ID = "truncated-container";
@@ -111,6 +115,8 @@ export const TruncatableText: React.FC<Props> = ({
   };
 
   const transformText = useCallback(() => {
+    if (!containerRef.current || !textRef.current) return;
+
     const start = performance.now();
     const containerWidth = getWidth(containerRef.current as HTMLDivElement);
     const textWidth = getWidth(textRef.current as HTMLDivElement);
@@ -195,7 +201,8 @@ export const TruncatableText: React.FC<Props> = ({
   return (
     <div
       onDoubleClick={onDoubleClick}
-      className={`${styles.container} ${className}`}
+      className={className}
+      style={INLINE_STYLES}
       onKeyDown={onKeyDown}
       ref={(node) => {
         containerRef.current = node;
@@ -211,3 +218,5 @@ export const TruncatableText: React.FC<Props> = ({
     </div>
   );
 };
+
+export default TruncatableText;

@@ -1,13 +1,19 @@
 {
   "name": "react-truncatable-text",
-  "type": "module",
-  "source": "src/truncatable-text.tsx",
-  "version": "1.0.1",
+  "source": "./src/index.ts",
+  "version": "1.0.12",
   "description": "High performing component that truncates a long text",
   "main": "./dist/react-truncatable-text.js",
   "module": "./dist/react-truncatable-text.esm.js",
   "unpkg": "./dist/react-truncatable-text.umd.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/react-truncatable-text.js",
+      "default": "./dist/react-truncatable-text.modern.mjs"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/SmirnovW/react-truncatable-text"
@@ -16,8 +22,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "microbundle --css-modules true",
-    "dev": "microbundle --jsx React.createElement -f cjs,es,modern --no-compress --watch",
+    "build": "microbundle --name TruncatableText --jsx React.createElement -f cjs,umd,es,modern --no-compress --css-modules true",
+    "dev": "microbundle --jsx React.createElement -f js,cjs,es,modern --no-compress --watch",
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -45,11 +51,12 @@
     "microbundle": "^0.15.1",
     "prettier": "^2.8.8",
     "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "storybook": "^7.0.18",
     "ts-jest": "^29.1.0",
     "typescript": "^5.1.3"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "react-intersection-observer": "^9.4.4"
