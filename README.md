@@ -67,7 +67,6 @@ To select the entire text, simply double-click on the component. Even if the tex
 ### Performance
 
 The component utilizes the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to handle only the visible component, so you can have a lot of components on the page and no worry about the performance issues. 
-To select the entire text, simply double-click on the component. Even if the text has been shortened, copying it will still copy the full original text to your clipboard.
 
 ### Resizing
 
