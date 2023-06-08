@@ -54,7 +54,7 @@ export function useMeasureText(fontStyles: FontCSSStylesDeclaration) {
   return (text: string): TextMetrics => {
     return context
       ? context.measureText(text)
-      : {
+      : ({
           actualBoundingBoxAscent: 0,
           actualBoundingBoxDescent: 0,
           actualBoundingBoxLeft: 0,
@@ -62,6 +62,6 @@ export function useMeasureText(fontStyles: FontCSSStylesDeclaration) {
           fontBoundingBoxAscent: 0,
           fontBoundingBoxDescent: 0,
           width: 0,
-        };
+        } as TextMetrics);
   };
 }
