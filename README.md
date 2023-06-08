@@ -1,4 +1,4 @@
-# react-intersection-observer
+# react-truncatable-text
 
 ![GZipped size][npm-minzip-svg]
 
