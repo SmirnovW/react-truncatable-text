@@ -4,13 +4,12 @@
 
 High-performing React component that truncates a long text.
 
-**Demo:**
-[https://.vercel.app](.vercel.app)
+**Check the demo here:**
+[DEMO](https://react-truncatable-text-demo.vercel.app/)
 
 ## Features
 
-- ⏱ **Smart Debouncing** - In cases when it's needed will try to save the resource and turn on the debouncing. 
-  possible.
+- ⏱ **Smart Debouncing** - In cases when it's needed will try to save the resource and turn on the debouncing.
 - 💾 **Smart Copy/Paste** - Copying even truncated text will add the full text to the clipboard.
 - 📝 **TypeScript** - Good for TypeScript projects.
 - ⚡️ **Performing better than native text-overflow** - Rendering only when the component is in view and only when changes are necessary.
