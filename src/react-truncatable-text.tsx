@@ -114,6 +114,7 @@ export const TruncatableText: React.FC<Props> = ({
     }
   };
 
+  // Here we're changing the text size
   const transformText = useCallback(() => {
     if (!containerRef.current || !textRef.current) return;
 
@@ -139,6 +140,7 @@ export const TruncatableText: React.FC<Props> = ({
     const executionTime = end - start;
 
     if (debounced) {
+      // in case if there is a performance issue, we'll force debouncing of the text truncation
       if (executionTime >= EXECUTION_TIME_LIMIT) {
         if (!forceDebounce) {
           setForceDebounce(true);
@@ -154,7 +156,8 @@ export const TruncatableText: React.FC<Props> = ({
     : transformText;
 
   const findMaximumLettersAmount = (containerWidth: number) => {
-    const { width } = measureText(children); // 200
+    const { width } = measureText(children);
+    // we're determining the average letter size
     const letterWidth = width / children.length;
 
     if (letterWidth === 0) {
@@ -167,6 +170,8 @@ export const TruncatableText: React.FC<Props> = ({
       measureText(truncate(children, maximumLettersAmount, tailLength)).width ??
       0;
 
+    // The maximum letter amount is an approximate value and can be possible that the container can fit
+    // more letters. So we need to measure if it's possible to add more letters to the container
     while (
       maximumLettersAmount < children.length &&
       currentWidth <= containerWidth
