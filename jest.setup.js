@@ -1,3 +1,4 @@
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 import "@testing-library/jest-dom";
 import { defaultFallbackInView } from "react-intersection-observer";
 import {

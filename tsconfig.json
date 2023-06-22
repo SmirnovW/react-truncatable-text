@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "target": "ESNext",
     "lib": ["es6", "es7", "esnext", "dom"],
-    "types": ["@types/jest"],
+    "types": ["@types/jest", "@types/testing-library__jest-dom"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -14,7 +14,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "incremental": true
   },
   "include": [

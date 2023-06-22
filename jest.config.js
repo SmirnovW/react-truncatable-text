@@ -6,5 +6,7 @@ module.exports = {
   transform: {
     "^.+\\.jsx?$": "ts-jest",
   },
+  setupFiles: ["jest-canvas-mock", "<rootDir>/jest/unfreeze-import.js"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  moduleDirectories: ["node_modules", "<rootDir>/"],
 };
