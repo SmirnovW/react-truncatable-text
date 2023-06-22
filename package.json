@@ -1,7 +1,7 @@
 {
   "name": "react-truncatable-text",
   "source": "./src/index.ts",
-  "version": "1.0.14",
+  "version": "1.1.0",
   "description": "High performing component that truncates a long text",
   "main": "./dist/react-truncatable-text.js",
   "module": "./dist/react-truncatable-text.esm.js",

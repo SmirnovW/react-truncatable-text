@@ -11,6 +11,7 @@ High-performing React component that truncates a long text.
 
 - ⏱ **Smart Debouncing** - In cases when it's needed will try to save the resource and turn on the debouncing.
 - 💾 **Smart Copy/Paste** - Copying even truncated text will add the full text to the clipboard.
+- 🔦 **Smart Search** - Even after truncating, text can be found by built-in browser search.
 - 📝 **TypeScript** - Good for TypeScript projects.
 - ⚡️ **Performing better than native text-overflow** - Rendering only when the component is in view and only when changes are necessary.
 
@@ -55,6 +56,7 @@ export const Component = () => (
 | **title**              | `string`        | `''`          | `Optional`       | Text that appears as a hint on the hover of the original text                                                                     |
 | **className**          | `string`        | `''`          | `Optional`       | CSS class of the component's container.                                                                                           |
 | **debounced**          | `boolean`       | `false`       | `Optional`       | A boolean indicating whether should we enable smart debouncing or not.                                                            |
+| **searchable**         | `boolean`       | `false`       | `Optional`       | A boolean indicating whether should be enabled search in truncated text.                                                  |
 
 ### Smart debouncing
 
@@ -63,6 +65,12 @@ The smart debouncing feature utilizes the [Performance API](https://developer.mo
 ### Smart Copy/Paste
 
 To select the entire text, simply double-click on the component. Even if the text has been shortened, copying it will still copy the full original text to your clipboard.
+
+### Smart search
+
+To be able to find a search in the truncated text used the [hidden attribute](https://developer.chrome.com/articles/hidden-until-found/) with the `until-found` value.
+> **Important!**
+> Since the `until-found` has weak [browser compatibility](https://caniuse.com/mdn-html_global_attributes_hidden_until-found_value) for non-supporting browsers it will use fallback based on the scroll behavior. It might cause appearing a scrollbar.
 
 ### Performance
 
